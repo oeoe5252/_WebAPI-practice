@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0.innerText.html</title>
+</head>
+<body>
+    <!-- 
+        - 템플릿으로 innerText, content, 등등의 webAPI 톺아보기
+    -->
+
+    <template id="oe_template">
+        템플릿 영역 테스트용 텍스트 겉
+        <section>
+            템플릿 영역 테스트용 텍스트
+            <h2>제목영역</h2>
+            <div>본문영역</div>
+        </section>
+    </template>
+
+    <div id="oe_div">
+        block box
+        <p>내부 단락 텍스트</p>
+        <span>인라인 텍스트</span>
+        <button>버튼</button>
+        <a href="#none">앵커</a>
+    </div>
+
+    <script>
+        (function(){
+            let $template = document.getElementById('oe_template');
+            let $div = document.getElementById('oe_div');
+
+            console.group('HTMLTemplateElement');
+                console.group('getElementById');
+                    console.log($template);
+                    console.log(`${$template}`);
+                console.groupEnd();
+                console.group('HTMLTemplateElement.content');
+                    console.log($template.content);
+                    console.log(`${$template.content}`);
+                console.groupEnd();
+                console.group('Element.outerHTML');
+                    console.log($template.outerHTML);
+                    console.log(typeof($template.outerHTML));
+                console.groupEnd();
+                console.group('Element.innerHTML');
+                    console.log($template.innerHTML);
+                    console.log(typeof($template.innerHTML));
+                console.groupEnd();
+                console.group('Node.innerText');
+                    console.log($template.innerText);
+                    console.log(typeof($template.innerText));
+                console.groupEnd();
+                console.group('Node.textContent');
+                    console.log($template.textContent);
+                    console.log(typeof($template.textContent));
+                console.groupEnd();
+            console.groupEnd();
+            console.group('HTMLElement');
+                console.group('getElementById');
+                    console.log($div);
+                    console.log(`${$div}`);
+                console.groupEnd();
+                console.group('Element.outerHTML');
+                    console.log($div.outerHTML);
+                    console.log(typeof($div.outerHTML));
+                console.groupEnd();
+                console.group('Element.innerHTML');
+                    console.log($div.innerHTML);
+                    console.log(typeof($div.innerHTML));
+                console.groupEnd();
+                console.group('Node.innerText');
+                    console.log($div.innerText);
+                    console.log(typeof($div.innerText));
+                console.groupEnd();
+                console.group('Node.textContent');
+                    console.log($div.textContent);
+                    console.log(typeof($div.textContent));
+                console.groupEnd();
+                console.group('HTMLTemplateElement.content');
+                    console.log(`.content 는 HTMLTemplateElement에서 제공하는 프로퍼티 라서, HTMLElement 나, HTML**Element에서 사용 불가`)
+                    console.log($div.content);
+                    console.log(typeof($div.content));
+                console.groupEnd();
+            console.groupEnd();
+
+        })();
+    </script>
+</body>
+</html>
